@@ -14,7 +14,7 @@ namespace InsuranceRateCalculatorTests
         public void SetUp()
         {
             driver = new ChromeDriver();
-            baseUrl = "http://localhost:5501/getQuote.html"; // Replace with the actual URL of the web application
+            baseUrl = "http://localhost/prog2070a03"; // Replace with the actual URL of the web application
             driver.Manage().Window.Maximize();
         }
 
@@ -555,12 +555,6 @@ namespace InsuranceRateCalculatorTests
             string insuranceRate = insuranceRateInput.GetAttribute("value");
             Assert.AreEqual("", insuranceRate);
         }
-
-
-
-
-
-
 
 
         [TearDown]
