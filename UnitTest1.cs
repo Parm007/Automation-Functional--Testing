@@ -325,6 +325,239 @@ namespace InsuranceRateCalculatorTests
             Assert.AreEqual("", insuranceRate);
         }
 
+        [Test]
+        public void test10_OmmittedFirstName_Age45_NoAccidents_Experience5()
+        {
+            // Navigate to the web application
+            driver.Navigate().GoToUrl(baseUrl);
+
+            // Enter valid data for all mandatory input fields
+            // driver.FindElement(By.Id("firstName")).SendKeys("John");
+            driver.FindElement(By.Id("lastName")).SendKeys("Doe");
+            driver.FindElement(By.Id("address")).SendKeys("123 Main St");
+            driver.FindElement(By.Id("city")).SendKeys("Anytown");
+            driver.FindElement(By.Id("province")).SendKeys("Ontario");
+            driver.FindElement(By.Id("postalCode")).SendKeys("N2L 3G1");
+            driver.FindElement(By.Id("phone")).SendKeys("(123)123-1234");
+            driver.FindElement(By.Id("email")).SendKeys("johndoe@mail.com");
+            driver.FindElement(By.Id("age")).SendKeys("45");
+            driver.FindElement(By.Id("accidents")).SendKeys("0");
+            driver.FindElement(By.Id("experience")).SendKeys("5");
+
+
+            // Click on the submit button
+            driver.FindElement(By.Id("btnSubmit")).Click();
+
+            // Verify that the error message is displayed for the number of at-fault accidents field
+            IWebElement accidentsErrorMessage = driver.FindElement(By.Id("firstName-error"));
+            string errorMessageText = accidentsErrorMessage.Text;
+            Assert.AreEqual("First Name is required", errorMessageText);
+
+            // Enter valid data for the number of at-fault accidents field 
+
+            // Click on the submit button again
+            driver.FindElement(By.Id("btnSubmit")).Click();
+
+            // Verify that the insurance rate provided is correct
+            IWebElement insuranceRateInput = driver.FindElement(By.Id("finalQuote"));
+            string insuranceRate = insuranceRateInput.GetAttribute("value");
+            Assert.AreEqual("", insuranceRate);
+        }
+
+        [Test]
+        public void test11_OmmittedLastName_Age45_NoAccidents_Experience5()
+        {
+            // Navigate to the web application
+            driver.Navigate().GoToUrl(baseUrl);
+
+            // Enter valid data for all mandatory input fields
+            driver.FindElement(By.Id("firstName")).SendKeys("John");
+            // driver.FindElement(By.Id("lastName")).SendKeys("Doe");
+            driver.FindElement(By.Id("address")).SendKeys("123 Main St");
+            driver.FindElement(By.Id("city")).SendKeys("Anytown");
+            driver.FindElement(By.Id("province")).SendKeys("Ontario");
+            driver.FindElement(By.Id("postalCode")).SendKeys("N2L 3G1");
+            driver.FindElement(By.Id("phone")).SendKeys("(123)123-1234");
+            driver.FindElement(By.Id("email")).SendKeys("johndoe@mail.com");
+            driver.FindElement(By.Id("age")).SendKeys("45");
+            driver.FindElement(By.Id("accidents")).SendKeys("0");
+            driver.FindElement(By.Id("experience")).SendKeys("5");
+
+
+            // Click on the submit button
+            driver.FindElement(By.Id("btnSubmit")).Click();
+
+            // Verify that the error message is displayed for the number of at-fault accidents field
+            IWebElement accidentsErrorMessage = driver.FindElement(By.Id("lastname-error"));
+            string errorMessageText = accidentsErrorMessage.Text;
+            Assert.AreEqual("Last Name is required", errorMessageText);
+
+            // Enter valid data for the number of at-fault accidents field 
+
+            // Click on the submit button again
+            driver.FindElement(By.Id("btnSubmit")).Click();
+
+            // Verify that the insurance rate provided is correct
+            IWebElement insuranceRateInput = driver.FindElement(By.Id("finalQuote"));
+            string insuranceRate = insuranceRateInput.GetAttribute("value");
+            Assert.AreEqual("", insuranceRate);
+        }
+
+
+        [Test]
+        public void test12_OmmittedAddress_Age45_NoAccidents_Experience5()
+        {
+            // Navigate to the web application
+            driver.Navigate().GoToUrl(baseUrl);
+
+            // Enter valid data for all mandatory input fields
+            driver.FindElement(By.Id("firstName")).SendKeys("John");
+            driver.FindElement(By.Id("lastName")).SendKeys("Doe");
+            // driver.FindElement(By.Id("address")).SendKeys("123 Main St");
+            driver.FindElement(By.Id("city")).SendKeys("Anytown");
+            driver.FindElement(By.Id("province")).SendKeys("Ontario");
+            driver.FindElement(By.Id("postalCode")).SendKeys("N2L 3G1");
+            driver.FindElement(By.Id("phone")).SendKeys("(123)123-1234");
+            driver.FindElement(By.Id("email")).SendKeys("johndoe@mail.com");
+            driver.FindElement(By.Id("age")).SendKeys("45");
+            driver.FindElement(By.Id("accidents")).SendKeys("0");
+            driver.FindElement(By.Id("experience")).SendKeys("5");
+
+
+            // Click on the submit button
+            driver.FindElement(By.Id("btnSubmit")).Click();
+
+            // Verify that the error message is displayed for the number of at-fault accidents field
+            IWebElement accidentsErrorMessage = driver.FindElement(By.Id("address-error"));
+            string errorMessageText = accidentsErrorMessage.Text;
+            Assert.AreEqual("Address is required", errorMessageText);
+
+            // Enter valid data for the number of at-fault accidents field 
+
+            // Click on the submit button again
+            driver.FindElement(By.Id("btnSubmit")).Click();
+
+            // Verify that the insurance rate provided is correct
+            IWebElement insuranceRateInput = driver.FindElement(By.Id("finalQuote"));
+            string insuranceRate = insuranceRateInput.GetAttribute("value");
+            Assert.AreEqual("", insuranceRate);
+        }
+
+        [Test]
+        public void test13_OmmittedCity_Age45_NoAccidents_Experience5()
+        {
+            // Navigate to the web application
+            driver.Navigate().GoToUrl(baseUrl);
+
+            // Enter valid data for all mandatory input fields
+            driver.FindElement(By.Id("firstName")).SendKeys("John");
+            driver.FindElement(By.Id("lastName")).SendKeys("Doe");
+            driver.FindElement(By.Id("address")).SendKeys("123 Main St");
+            // driver.FindElement(By.Id("city")).SendKeys("Anytown");
+            driver.FindElement(By.Id("province")).SendKeys("Ontario");
+            driver.FindElement(By.Id("postalCode")).SendKeys("N2L 3G1");
+            driver.FindElement(By.Id("phone")).SendKeys("(123)123-1234");
+            driver.FindElement(By.Id("email")).SendKeys("johndoe@mail.com");
+            driver.FindElement(By.Id("age")).SendKeys("45");
+            driver.FindElement(By.Id("accidents")).SendKeys("0");
+            driver.FindElement(By.Id("experience")).SendKeys("5");
+
+
+            // Click on the submit button
+            driver.FindElement(By.Id("btnSubmit")).Click();
+
+            // Verify that the error message is displayed for the number of at-fault accidents field
+            IWebElement accidentsErrorMessage = driver.FindElement(By.Id("city-error"));
+            string errorMessageText = accidentsErrorMessage.Text;
+            Assert.AreEqual("City is required", errorMessageText);
+
+            // Enter valid data for the number of at-fault accidents field 
+
+            // Click on the submit button again
+            driver.FindElement(By.Id("btnSubmit")).Click();
+
+            // Verify that the insurance rate provided is correct
+            IWebElement insuranceRateInput = driver.FindElement(By.Id("finalQuote"));
+            string insuranceRate = insuranceRateInput.GetAttribute("value");
+            Assert.AreEqual("", insuranceRate);
+        }
+
+        [Test]
+        public void test14_InvalidAge_NoAccidents_Experience5()
+        {
+            // Navigate to the web application
+            driver.Navigate().GoToUrl(baseUrl);
+
+            // Enter valid data for all mandatory input fields except age
+            driver.FindElement(By.Id("firstName")).SendKeys("John");
+            driver.FindElement(By.Id("lastName")).SendKeys("Doe");
+            driver.FindElement(By.Id("address")).SendKeys("123 Main St");
+            driver.FindElement(By.Id("age")).SendKeys("12");
+            driver.FindElement(By.Id("city")).SendKeys("Anytown");
+            driver.FindElement(By.Id("province")).SendKeys("Ontario");
+            driver.FindElement(By.Id("postalCode")).SendKeys("N2L 3G1");
+            driver.FindElement(By.Id("phone")).SendKeys("(123)123-1234");
+            driver.FindElement(By.Id("email")).SendKeys("johndoe@mail.com");
+            driver.FindElement(By.Id("experience")).SendKeys("5");
+            driver.FindElement(By.Id("accidents")).SendKeys("0");
+
+            // Click on the submit button
+            driver.FindElement(By.Id("btnSubmit")).Click();
+
+            // Verify that the age validation error message is displayed
+            IWebElement ageValidationMessage = driver.FindElement(By.Id("age-error"));
+            Assert.AreEqual("Please enter a value greater than or equal to 16.", ageValidationMessage.Text);
+
+
+
+            // Click on the submit button again
+            driver.FindElement(By.Id("btnSubmit")).Click();
+
+            // Verify that the insurance rate provided is correct
+            IWebElement insuranceRateInput = driver.FindElement(By.Id("finalQuote"));
+            string insuranceRate = insuranceRateInput.GetAttribute("value");
+            Assert.AreEqual("", insuranceRate);
+        }
+
+        [Test]
+        public void test15_InvalidExperience_Age27_NoAccidents()
+        {
+            // Navigate to the web application
+            driver.Navigate().GoToUrl(baseUrl);
+
+            // Enter valid data for all mandatory input fields except age
+            driver.FindElement(By.Id("firstName")).SendKeys("John");
+            driver.FindElement(By.Id("lastName")).SendKeys("Doe");
+            driver.FindElement(By.Id("address")).SendKeys("123 Main St");
+            driver.FindElement(By.Id("age")).SendKeys("27");
+            driver.FindElement(By.Id("city")).SendKeys("Anytown");
+            driver.FindElement(By.Id("province")).SendKeys("Ontario");
+            driver.FindElement(By.Id("postalCode")).SendKeys("N2L 3G1");
+            driver.FindElement(By.Id("phone")).SendKeys("(123)123-1234");
+            driver.FindElement(By.Id("email")).SendKeys("johndoe@mail.com");
+            driver.FindElement(By.Id("experience")).SendKeys("-10");
+            driver.FindElement(By.Id("accidents")).SendKeys("0");
+
+            // Click on the submit button
+            driver.FindElement(By.Id("btnSubmit")).Click();
+
+            // Verify that the age validation error message is displayed
+            IWebElement ageValidationMessage = driver.FindElement(By.Id("experience-error"));
+            Assert.AreEqual("Please enter a value greater than or equal to 0.", ageValidationMessage.Text);
+
+
+
+            // Click on the submit button again
+            driver.FindElement(By.Id("btnSubmit")).Click();
+
+            // Verify that the insurance rate provided is correct
+            IWebElement insuranceRateInput = driver.FindElement(By.Id("finalQuote"));
+            string insuranceRate = insuranceRateInput.GetAttribute("value");
+            Assert.AreEqual("", insuranceRate);
+        }
+
+
+
 
 
 
